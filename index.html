@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pizza </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">  <!-- CUSTOM CSS -->
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">            
+        </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+<!--               <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+ -->            </ul>
+          </div>        
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Start Order</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <form>
+                  <fieldset>
+                    <h2>Delivery Information</h2>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputFirstName">First Name</label>
+                          <input type="text" class="form-control" id="inputFirstName">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputLastName">Last Name</label>
+                          <input type="text" class="form-control" id="inputLastName">
+                        </div>
+                      </div>
+<!--                       <fieldset class="form-group">
+                        <div class="form-row">
+                            <legend class="col-form-label col-md-2 pt-0">Address Type:</legend>
+                            <div class="col-md-10">
+                                <select>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                  <label class="form-check-label" for="inlineRadio1">Residence</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                  <label class="form-check-label" for="inlineRadio2">Business</label>
+                                </div>
+                            </div>
+                        </div>
+                      </fieldset>-->
+
+                    <div class="form-group mb-4">
+                        <div class="form-row">
+                          <div class="col-form-label col-md-2">                        
+                              <label for="addressType">Address Type</label>
+                          </div>
+                          <div class="col-md-3">
+                              <select class="form-control" id="addressType">
+                                <option>House</option>
+                                <option>Apartment</option>
+                                <option>Business</option>
+                                <option>Campus</option>
+                                <option>Hotel</option>
+                                <option>Dorm</option>
+                                <option>Other</option>
+                              </select>
+                          </div>
+                          <div class="col-md-1"></div>
+                          <div class="col-form-label col-md-2 hidden" id="otherAddress1">
+                            <label for="inputOther">Other Address</label>
+                          </div>
+                          <div class="col-md-4 hidden" id="otherAddress2">
+                            <input type="text" class="form-control" id="inputOther" placeholder="Enter Address Type">
+                          </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label for="inputAddress">Address Line 1</label>
+                      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress2">Address Line 2</label>
+                      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, Suite, or Room Number">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputState">State</label>
+                        <input type="text" class="form-control" id="inputState">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail">Email Address</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Example: sam@abc.com">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPhone">Phone Number</label>
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="Example: 555-555-5555">
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-primary">Build My Pizza</button>
+                  </fieldset>
+
+<!--                     <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+ -->
+                    <h2>Pizza Selection</h2>
+                    <p>Select your crust:</p>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Hand-tossed
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Thin Crust
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                      <label class="form-check-label" for="exampleRadios3">
+                        New York Style
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                      <label class="form-check-label" for="exampleRadios4">
+                        Gluten Free
+                      </label>
+                    </div>                                        
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Size</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Cheese</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Sauce</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect2">Example multiple select</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Pepperoni
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                  <label class="form-check-label" for="defaultCheck2">
+                    Sausage
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                  <label class="form-check-label" for="defaultCheck3">
+                    Ham
+                  </label>                 
+                </div>       
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                  <label class="form-check-label" for="defaultCheck4">
+                    Bacon
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                  <label class="form-check-label" for="defaultCheck5">
+                    Salami
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                  <label class="form-check-label" for="defaultCheck6">
+                    Peppers
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                  <label class="form-check-label" for="defaultCheck7">
+                    Olives
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                  <label class="form-check-label" for="defaultCheck8">
+                    Jalapenos
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
+                  <label class="form-check-label" for="defaultCheck9">
+                    Mushrooms
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
+                  <label class="form-check-label" for="defaultCheck10">
+                    Pineapple
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
+                  <label class="form-check-label" for="defaultCheck11">
+                    Onions
+                  </label>
+                </div>
+                <button type="button" class="btn btn-primary">Finished Building Pizza</button>
+                </form>
+            </div>
+
+
+            <div class="running-total" class="col-md-4">
+                <h2>Order Total</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

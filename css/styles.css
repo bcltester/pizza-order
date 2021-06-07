@@ -1,0 +1,18 @@
+.jumbotron {
+/*    background-image: url('../img/pizza-overhead.jpg');
+    color: black;
+    opacity: 0.5;
+*/    }
+
+
+legend {
+/*    font-size: 1em;
+*/}
+
+.hidden {
+    display: none;
+}
+
+/*.visible {
+    display: visible;
+}*/
