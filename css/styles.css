@@ -16,3 +16,8 @@ legend {
 /*.visible {
     display: visible;
 }*/
+
+.validation-msg {
+    color: red;
+    font-size: .6em;
+}

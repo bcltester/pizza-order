@@ -53,19 +53,27 @@
         <div class="row">
             <div class="col-md-8">
                 <form>
-                  <fieldset>
-                    <h2>Delivery Information</h2>
-
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="inputFirstName">First Name</label>
-                          <input type="text" class="form-control" id="inputFirstName">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="inputLastName">Last Name</label>
-                          <input type="text" class="form-control" id="inputLastName">
-                        </div>
+                  <fieldset id="delivery-info">
+                    <div class="row">
+                      <div class="col-md-9">
+                        <h2>Delivery Information</h2>
                       </div>
+                      <div class="col-md-3">
+                        <p id="delivery-info-edit" class="edit-pencil hidden"><a href="#">Edit</a></p>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputFirstName">First Name</label>
+                        <input type="text" class="form-control" id="inputFirstName">
+                        <p class="validation-msg"></p>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="text" class="form-control" id="inputLastName">
+                        <p class="validation-msg"></p>
+                      </div>
+                    </div>
 <!--                       <fieldset class="form-group">
                         <div class="form-row">
                             <legend class="col-form-label col-md-2 pt-0">Address Type:</legend>
@@ -90,6 +98,7 @@
                           </div>
                           <div class="col-md-3">
                               <select class="form-control" id="addressType">
+                                <option value="" selected hidden>Select one...</option>
                                 <option>House</option>
                                 <option>Apartment</option>
                                 <option>Business</option>
@@ -98,13 +107,15 @@
                                 <option>Dorm</option>
                                 <option>Other</option>
                               </select>
+                              <p class="validation-msg"></p>
                           </div>
                           <div class="col-md-1"></div>
                           <div class="col-form-label col-md-2 hidden" id="otherAddress1">
-                            <label for="inputOther">Other Address</label>
+                            <label for="inputOther">Other Type</label>
                           </div>
                           <div class="col-md-4 hidden" id="otherAddress2">
-                            <input type="text" class="form-control" id="inputOther" placeholder="Enter Address Type">
+                            <input type="text" class="form-control" id="inputOther">
+                            <p class="validation-msg"></p>
                           </div>
                         </div>
                     </div>
@@ -112,38 +123,45 @@
 
 
                     <div class="form-group">
-                      <label for="inputAddress">Address Line 1</label>
-                      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                      <label for="inputAddress1">Address Line 1</label>
+                      <input type="text" class="form-control" id="inputAddress1" placeholder="1234 Main St">
+                      <p class="validation-msg"></p>
                     </div>
                     <div class="form-group">
                       <label for="inputAddress2">Address Line 2</label>
                       <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, Suite, or Room Number">
+                      <p class="validation-msg"></p>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
                         <input type="text" class="form-control" id="inputCity">
+                        <p class="validation-msg"></p>
                       </div>
                       <div class="form-group col-md-2">
                         <label for="inputState">State</label>
                         <input type="text" class="form-control" id="inputState">
+                        <p class="validation-msg"></p>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="inputZip">Zip</label>
                         <input type="text" class="form-control" id="inputZip">
+                        <p class="validation-msg"></p>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="inputEmail">Email Address</label>
                         <input type="email" class="form-control" id="inputEmail" placeholder="Example: sam@abc.com">
+                        <p class="validation-msg"></p>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="inputPhone">Phone Number</label>
                         <input type="tel" class="form-control" id="inputPhone" placeholder="Example: 555-555-5555">
+                        <p class="validation-msg"></p>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-primary">Build My Pizza</button>
+                    <button type="button" class="btn btn-primary" id="btnStep1">Build My Pizza</button>
                   </fieldset>
 
 <!--                     <div class="form-group">
