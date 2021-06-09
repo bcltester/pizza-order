@@ -20,6 +20,28 @@ let email = $('#inputEmail');
 let phone = $('#inputPhone');
 
 
+// OBJECT LITERAL FOR PIZZA SIZES
+
+const Size = {
+    handTossed: {
+        Small: 9.99,
+        Medium: 12.99,
+        Large: 14.99
+    },
+    thinCrust: {
+        Medium: 11.99,
+        Large: 13.99
+    },
+    newYork: {
+        Large: 16.99,
+        XLarge: 19.99
+    },
+    glutenFree: {
+        Small: 10.99
+    }
+};
+
+
 // VALIDATION FUNCTION AFTER DELIVERY INFO (STEP 1)
 
 const validation = () => {
@@ -129,12 +151,13 @@ const validation = () => {
         isValid = false;
     }  
 
-
-
-
-
     return isValid;
 };
+
+
+
+
+// MAIN CODE
 
 window.addEventListener('load', (e) => {
 
@@ -152,15 +175,25 @@ window.addEventListener('load', (e) => {
         if (!validation()) {
             alert('Please go back and fix errors.');
         } else {
+            // SHOW 'EDIT' LINK AND PENCIL FOR STEP 1
             $('#delivery-info-edit').classList.remove("hidden");
+
+            // DISABLE STEP 1 INPUTS TO PREVENT MODIFICATION OF DATA TO INVALID INPUTS
             $('#delivery-info').setAttribute("disabled", "");
+
+            // REVEAL AND ENABLE STEP 2
+            $('#build-pizza').classList.remove("hidden")
+            $('#build-pizza').removeAttribute("disabled");            
         }
     });
 
-
-
-
-
+    $('#step1-edit').addEventListener('click', (e) => {
+        // CLICKING THE EDIT LINK IN STEP 1 ENABLES THE STEP 1 FORM AND DISABLES AND HIDES STEP 2 FORM
+        e.preventDefault();
+        $('#delivery-info').removeAttribute("disabled");
+        $('#build-pizza').setAttribute("disabled", "")
+        $('#build-pizza').classList.add('hidden');
+    });
 
 
 });
