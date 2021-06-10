@@ -23,22 +23,61 @@ let phone = $('#inputPhone');
 // OBJECT LITERAL FOR PIZZA SIZES
 
 const Size = {
-    handTossed: {
+    'Hand-tossed': {
         Small: 9.99,
         Medium: 12.99,
         Large: 14.99
     },
-    thinCrust: {
+    'Thin Crust': {
         Medium: 11.99,
         Large: 13.99
     },
-    newYork: {
+    'New York Style': {
         Large: 16.99,
         XLarge: 19.99
     },
-    glutenFree: {
+    'Gluten Free': {
         Small: 10.99
     }
+};
+
+// OBJECT LITERAL FOR CHEESE, SAUCE
+
+const Cheese = {
+    Light: 0,
+    Normal: 0,
+    Extra: 2.99,
+    Double: 3.99
+};
+
+const Sauce = {
+    'Regular Tomato': 0,
+    'Hearty Tomato': 0.99,
+    'BBQ Sauce': 1.99
+};
+
+
+// FUNCTION TO POPULATE SIZE DROPDOWN
+
+function sizeSelections (crustName) {
+    // FIRST GET RID OF ANY PRE-EXISTING <OPTION>s IN THE <SELECT> DROPDOWN
+    let selectDropdown = $('#select-size');
+    while (selectDropdown.lastChild) {
+        selectDropdown.removeChild(selectDropdown.lastChild);
+    };
+
+    // DEFAULT OPTION THAT SAYS TO CHOOSE A SIZE
+    let def = document.createElement('OPTION');
+    def.innerText = `Choose Size...`;
+    selectDropdown.appendChild(def);    
+    for (size in Size[crustName]) {
+        let elem = document.createElement('OPTION');
+        elem.innerText = `${size} ($${Size[crustName][size]})`;
+        elem.setAttribute("value", size);
+        selectDropdown.appendChild(elem);
+    }
+
+
 };
 
 
@@ -195,5 +234,16 @@ window.addEventListener('load', (e) => {
         $('#build-pizza').classList.add('hidden');
     });
 
+    $('#select-crust').addEventListener('click', (e) => {
+        if (e.target.tagName === "INPUT") {         // @@ HAD TO ADD THIS BECAUSE CLICKING ON A RADIO BUTTON LABEL WOULD TRIGGER CLICK EVENT TWICE. IT LOOKS LIKE IT TRIGGERS ONE CLICK FOR CLICKING ON THE LABEL, AND THEN A SECOND CLICK WHEN THE LABEL CAUSES SELECTION OF THE RADIO BUTTON ITSELF.
+            let radioButtons = document.querySelectorAll('input[name="crust"]');
+            for (button of radioButtons) {
+                if (button.checked) {
+                    let crust = button.value;
+                    sizeSelections(crust);
+                }
+            }
+        }
+    });
 
 });

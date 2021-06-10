@@ -160,7 +160,7 @@
               </div>
             </div>
 
-            <fieldset class="form-group">
+            <fieldset id="select-crust" class="form-group">
               <legend>Select your crust:</legend>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="crust" id="crust1" value="Hand-tossed">
@@ -191,97 +191,90 @@
             <div class="form-group">
               <label for="select-size">Size:</label>
               <select class="form-control" id="select-size">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="none">First select your crust</option>
               </select>
             </div>
             <div class="form-group">
               <label for="select-cheese">Cheese:</label>
               <select class="form-control" id="select-cheese">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="Light">Light (no charge)</option>
+                <option value="Normal" selected>Normal (no charge)</option>
+                <option value="Extra">Extra (+$2.99)</option>
+                <option value="Double">Double (+$3.99)</option>
               </select>
             </div>
             <div class="form-group">
               <label for="select-sauce">Sauce:</label>
               <select class="form-control" id="select-sauce">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="Regular Tomato">Regular Tomato (no charge)</option>
+                <option value="Hearty Tomato">Hearty Tomato (+$0.99)</option>
+                <option value="BBQ Sauce">BBQ Sauce (+$1.99)</option>
               </select>
             </div>
             <fieldset class="form-group">
-              <legend>Additional toppings:</legend>
+              <legend>Additional toppings (+$0.99 each):</legend>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <input class="form-check-input" type="checkbox" value="Pepperoni" id="defaultCheck1">
                   <label class="form-check-label" for="defaultCheck1">
                     Pepperoni
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                  <input class="form-check-input" type="checkbox" value="Sausage" id="defaultCheck2">
                   <label class="form-check-label" for="defaultCheck2">
                     Sausage
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                  <input class="form-check-input" type="checkbox" value="Ham" id="defaultCheck3">
                   <label class="form-check-label" for="defaultCheck3">
                     Ham
                   </label>                 
                 </div>       
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                  <input class="form-check-input" type="checkbox" value="Bacon" id="defaultCheck4">
                   <label class="form-check-label" for="defaultCheck4">
                     Bacon
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                  <input class="form-check-input" type="checkbox" value="Salami" id="defaultCheck5">
                   <label class="form-check-label" for="defaultCheck5">
                     Salami
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                  <input class="form-check-input" type="checkbox" value="Peppers" id="defaultCheck6">
                   <label class="form-check-label" for="defaultCheck6">
                     Peppers
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                  <input class="form-check-input" type="checkbox" value="Olives" id="defaultCheck7">
                   <label class="form-check-label" for="defaultCheck7">
                     Olives
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                  <input class="form-check-input" type="checkbox" value="Jalapenos" id="defaultCheck8">
                   <label class="form-check-label" for="defaultCheck8">
                     Jalapenos
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
+                  <input class="form-check-input" type="checkbox" value="Mushrooms" id="defaultCheck9">
                   <label class="form-check-label" for="defaultCheck9">
                     Mushrooms
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
+                  <input class="form-check-input" type="checkbox" value="Pineapple" id="defaultCheck10">
                   <label class="form-check-label" for="defaultCheck10">
                     Pineapple
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
+                  <input class="form-check-input" type="checkbox" value="Onions" id="defaultCheck11">
                   <label class="form-check-label" for="defaultCheck11">
                     Onions
                   </label>
@@ -294,7 +287,26 @@
       </div>
 
       <div class="running-total" class="col-md-4">
-          <h2>Order Total</h2>
+        <h2>Order Total</h2>
+        <table>
+          <thead>
+            <tr>
+              <th class="left-col">Selection</th>
+              <th class="right-col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="size-row"></tr>
+            <tr class="cheese-row"></tr>
+            <tr class="sauce-row"></tr>
+            <tr class="toppings-row"></tr>
+            <tr class="line"></tr>
+            <tr class="total-row">
+              <td>TOTAL:</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

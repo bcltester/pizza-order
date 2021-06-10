@@ -21,3 +21,24 @@ legend {
     color: red;
     font-size: .6em;
 }
+
+table {
+    width: 100%;
+}
+
+.left-col {
+    width: 60%;
+}
+
+.right-col {
+    width: 40%;
+}
+
+.line {
+    border-bottom: solid 1px gray;
+    height: 10px;
+}
+
+.total-row td {
+    font-weight: bold;
+}
