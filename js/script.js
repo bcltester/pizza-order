@@ -19,6 +19,7 @@ let zip = $('#inputZip');
 let email = $('#inputEmail');
 let phone = $('#inputPhone');
 
+let sizeDropdown = $('#select-size');
 
 // OBJECT LITERAL FOR PIZZA SIZES
 
@@ -69,6 +70,7 @@ function sizeSelections (crustName) {
     // DEFAULT OPTION THAT SAYS TO CHOOSE A SIZE
     let def = document.createElement('OPTION');
     def.innerText = `Choose Size...`;
+    def.setAttribute("value", "none");
     selectDropdown.appendChild(def);    
     for (size in Size[crustName]) {
         let elem = document.createElement('OPTION');
@@ -234,16 +236,32 @@ window.addEventListener('load', (e) => {
         $('#build-pizza').classList.add('hidden');
     });
 
+    let crust;
     $('#select-crust').addEventListener('click', (e) => {
         if (e.target.tagName === "INPUT") {         // @@ HAD TO ADD THIS BECAUSE CLICKING ON A RADIO BUTTON LABEL WOULD TRIGGER CLICK EVENT TWICE. IT LOOKS LIKE IT TRIGGERS ONE CLICK FOR CLICKING ON THE LABEL, AND THEN A SECOND CLICK WHEN THE LABEL CAUSES SELECTION OF THE RADIO BUTTON ITSELF.
             let radioButtons = document.querySelectorAll('input[name="crust"]');
             for (button of radioButtons) {
                 if (button.checked) {
-                    let crust = button.value;
+                    crust = button.value;
                     sizeSelections(crust);
                 }
             }
         }
+    });
+
+    sizeDropdown.addEventListener('change', (e) => {
+        while ($('.size-row').lastChild) {
+            $('.size-row').removeChild($('.size-row').lastChild);
+        }
+        if (sizeDropdown.value !== 'none') {
+            let item = document.createElement('TD');
+            let price = document.createElement('TD');
+            $('.size-row').appendChild(item);
+            $('.size-row').appendChild(price);
+            item.innerText = sizeDropdown.value;
+            price.innerText = Size[crust][sizeDropdown.value];
+        }
+
     });
 
 });

@@ -42,3 +42,15 @@ table {
 .total-row td {
     font-weight: bold;
 }
+
+#flex-row {
+    justify-content: space-between;
+}
+
+.running-total {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 5%;
+    height: 25vh;
+    margin-right: 4%;
+}
