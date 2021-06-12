@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pizza </title>
+    <title>Pizza Combine</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous"> -->
@@ -14,10 +14,11 @@
 
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">
-          <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">            
+          <img src="img/pizza_logo.svg" width="30" height="30" alt="Pizza Combine logo">
+          <!-- Credit for image: https://svg-clipart.com/food/X9GoYp8-pizza-cult-clipart             -->
       </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -27,12 +28,12 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+<!--             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
-            </li>
+            </li> -->
 <!--               <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
@@ -43,15 +44,20 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1 class="display-4">Hello, world!</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Start Order</a>
+      <div class="row">
+        <div class="col-md-7"></div>
+        <div class="col-md-5">
+          <h1 class="display-4">Pie there!</h1>
+          <p class="lead">Our pizzas are made-to-order and made with 100% organic ingredients. Treat yourself with a delicious pizza delivered to your door.</p>
+          <!-- <hr class="my-4"> -->
+  <!--         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+          <a class="btn btn-success btn-lg" href="#delivery-info" role="button">Start Order</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" id="contents">
     <div class="row" id="flex-row">
       <div class="col-md-8">
         <form>
@@ -146,7 +152,7 @@
                 <p class="validation-msg"></p>
               </div>
             </div>
-            <button type="button" class="btn btn-primary" id="btnStep1">Finished Delivery Info</button>
+            <button type="button" class="btn btn-success" id="btnStep1">Finished Delivery Info</button>
           </fieldset>
 
           <!-- STEP 2 -->
@@ -156,7 +162,7 @@
                 <h2>Pizza Selection</h2>
               </div>
               <div class="col-md-2">
-                <p id="build-pizza-edit" class="edit-pencil hidden"><a href="#"><i class="fas fa-pencil-alt"></i> Edit</a></p>
+                <p id="build-pizza-edit" class="edit-pencil hidden"><a href="#" id="step2-edit"><i class="fas fa-pencil-alt"></i> Edit</a></p>
               </div>
             </div>
 
@@ -194,7 +200,7 @@
                 <option value="none">First select your crust</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group hidden" id="group-cheese">
               <label for="select-cheese">Cheese:</label>
               <select class="form-control" id="select-cheese">
                 <option value="Light">Light (no charge)</option>
@@ -203,7 +209,7 @@
                 <option value="Double">Double (+$3.99)</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group hidden" id="group-sauce">
               <label for="select-sauce">Sauce:</label>
               <select class="form-control" id="select-sauce">
                 <option value="Regular Tomato">Regular Tomato (no charge)</option>
@@ -211,7 +217,7 @@
                 <option value="BBQ Sauce">BBQ Sauce (+$1.99)</option>
               </select>
             </div>
-            <fieldset class="form-group">
+            <fieldset class="form-group hidden" id="group-toppings">
               <legend>Additional toppings (+$0.99 each):</legend>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="Pepperoni" id="defaultCheck1">
@@ -281,12 +287,121 @@
                 </div>
             </fieldset>
 
-            <button type="button" class="btn btn-primary">Finished Building Pizza</button>
+            <button type="button" class="btn btn-success hidden" id="btn-build-finish">Finished Building Pizza</button>
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset id="billing-info" class="hidden disabled">
+            <div class="row">
+              <div class="col-md-6">
+                <h2>Billing Information</h2>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="sameAsDelivery" id="sameAsDelivery">
+                  <label class="form-check-label" for="sameAsDelivery">
+                    Same as Delivery Information
+                  </label>
+                </div>
+<!--                 <p id="billing-info-edit" class="edit-pencil hidden"><a href="#" id="step3-edit"><i class="fas fa-pencil-alt"></i> Edit</a></p>
+ -->              
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputBillingFirstName">First Name</label>
+                <input type="text" class="form-control" id="inputBillingFirstName">
+                <p class="validation-msg"></p>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputBillingLastName">Last Name</label>
+                <input type="text" class="form-control" id="inputBillingLastName">
+                <p class="validation-msg"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputBillingAddress1">Address Line 1</label>
+              <input type="text" class="form-control" id="inputBillingAddress1" placeholder="1234 Main St">
+              <p class="validation-msg"></p>
+            </div>
+            <div class="form-group">
+              <label for="inputBillingAddress2">Address Line 2</label>
+              <input type="text" class="form-control" id="inputBillingAddress2" placeholder="Apartment, Suite, or Room Number">
+              <p class="validation-msg"></p>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputBillingCity">City</label>
+                <input type="text" class="form-control" id="inputBillingCity">
+                <p class="validation-msg"></p>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputBillingState">State</label>
+                <input type="text" class="form-control" id="inputBillingState">
+                <p class="validation-msg"></p>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputBillingZip">Zip</label>
+                <input type="text" class="form-control" id="inputBillingZip">
+                <p class="validation-msg"></p>
+              </div>
+            </div>
+            <!-- CREDIT CARD INPUT -->
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="inputCreditNumber">Credit Card Number</label>
+                <input type="text" class="form-control" id="inputCreditNumber">
+                <p class="validation-msg cc-msg"></p>
+              </div>
+              <div class="form-group col-md-1" id="cc-logo">
+              </div>              
+              <div class="form-group col-md-1">
+                <label for="inputCreditCVC">CVC</label>
+                <input type="text" class="form-control" id="inputCreditCVC">
+                <p class="validation-msg cc-msg"></p>
+              </div>           
+<!--               <div class="col-form-label col-md-2">                        
+                  
+              </div> -->
+              <div class="form-group col-md-3"> 
+                <label for="expirationMonth">Expiration Month</label>
+                <select class="form-control" id="expirationMonth">
+                  <option value="none" selected hidden>Select one...</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <p class="validation-msg cc-msg"></p>
+              </div>
+              <div class="form-group col-md-3"> 
+                <label for="expirationYear">Expiration Year</label>
+                <select class="form-control" id="expirationYear">
+                  <option value="none" selected hidden>Select one...</option>
+                </select>
+                <p class="validation-msg cc-msg"></p>
+              </div>
+            </div>      
+
+
+            <button type="button" class="btn btn-success" id="btnStep3">Submit Order</button>
           </fieldset>
         </form>
       </div>
 
-      <div class="running-total" class="col-md-4">
+
+
+
+      <div class="running-total mr-0 col-md-4">
         <h2>Order Total</h2>
         <table>
           <thead>
@@ -303,7 +418,7 @@
             <tr class="line"></tr>
             <tr class="total-row">
               <td>TOTAL:</td>
-              <td></td>
+              <td>$0.00</td>
             </tr>
           </tbody>
         </table>
